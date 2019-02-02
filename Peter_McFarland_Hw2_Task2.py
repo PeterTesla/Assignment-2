@@ -29,10 +29,10 @@ def plot_data():
 def main():
      
 
-    x0 = 1.0
+    x0 =  int(input("Please INput Initial X Position: "))
     vx0 = int(input("Please Input Vx Initial: " ))
 
-    y0 = 0.0
+    y0 = int(input("Please Input Initial Y Position: ")) 
     vy0 = int(input("Please input Vy Initial: ")) 
 
     ax = 0.0
