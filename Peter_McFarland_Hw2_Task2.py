@@ -30,10 +30,10 @@ def main():
      
 
     x0 = 1.0
-    vx0 = 70.0         # TODO: capture input
+    vx0 = int(input("Please Input Vx Initial: " ))
 
     y0 = 0.0
-    vy0 = 80.0          # TODO: capture input
+    vy0 = int(input("Please input Vy Initial: ")) 
 
     ax = 0.0
     ay = -9.8           # define a constant
@@ -48,12 +48,16 @@ def main():
     interval = 170
 
     for i in range(interval):
+       
+        if px(y0,vy0,t,ay) < 0.0:
+            y.append(0)
+            x.append(px(x0,vx0,(-vy0-m.sqrt(vy0**2 - 2*ay*(y0)))/(ay), ax))
+            break
+
         x.append(px(x0,vx0,t,ax))
         y.append(px(y0,vy0,t,ay))
+       
         t = t + delt
-
-        if y[i] < 0.0:
-           break
 
 
     plt.plot(x, y)
