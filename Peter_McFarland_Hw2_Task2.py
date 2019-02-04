@@ -15,10 +15,12 @@ your functions.
 
 Make sure your python module works in dual-mode: by itself or import to other module
 """
+
 # NOTE: You may need to run: $ pip install matplotlib
   
 x = []
 y = []
+
 g = -9.8
 
 # Function to calculate projectile motion
@@ -27,6 +29,7 @@ def px(x,v,t,a):
 
 # Function to plot data
 def populate_data(delt):
+
     global x
     global y
 
@@ -51,12 +54,24 @@ def populate_data(delt):
 
 
 
+def DisplayGraph(x, y):
+    
+    plt.title('X and Y position of Object in Freefall')
+    plt.xlabel('X - Position in Meters')
+    plt.ylabel('Y - Position in Meters')
+    plt.axis([0, max(x), 0 , max(y)*1.25])
+    plt.grid(True)
+
+    plt.plot(x, y)
+    plt.show()
+
+   
+
 # "Main" Function
 def main():
     populate_data(300)
 
-    plt.plot(x, y)
-    plt.show()
+    DisplayGraph(x, y)
 
 
 if __name__ == "__main__":
