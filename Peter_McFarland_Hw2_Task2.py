@@ -26,7 +26,7 @@ def px(x,v,t,a):
     return x + v*t + 0.5*a*t**2
 
 # Function to plot data
-def populate_data(interval):
+def populate_data(delt):
     global x
     global y
 
@@ -38,11 +38,8 @@ def populate_data(interval):
 
     ax = 0.0
 
-    delt = 0.1
-    t = 0.0
 
-
-    for i in range(interval):
+    for t in np.linspace(0, (-vy0 - m.sqrt(vy0**2 - 2*g*(y0)))/(g),delt):
        
         if px(y0,vy0,t,g) < 0.0:
             y.append(0)
@@ -51,9 +48,6 @@ def populate_data(interval):
 
         x.append(px(x0,vx0,t,ax))
         y.append(px(y0,vy0,t,g))
-       
-        t = t + delt
-
 
 
 
